@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5.0)
+cmake_minimum_required(VERSION 3.7.0)
 project(GC-pokemon-RNG-manip-assistant)
 
 include(FindOpenMP)
@@ -32,6 +32,7 @@ find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Core REQUIRED)
 find_package(Qt5Gui REQUIRED)
 find_package(Qt5Concurrent REQUIRED)
+find_package(OpenCL REQUIRED)
          
 set(CMAKE_AUTOMOC ON)
          
@@ -45,7 +46,8 @@ target_link_libraries(GC-pokemon-RNG-manip-assistant Qt5::Widgets)
 target_link_libraries(GC-pokemon-RNG-manip-assistant Qt5::Gui)
 target_link_libraries(GC-pokemon-RNG-manip-assistant Qt5::Core)
 target_link_libraries(GC-pokemon-RNG-manip-assistant Qt5::Concurrent)
-         
+target_link_libraries(GC-pokemon-RNG-manip-assistant OpenCL::OpenCL)
+
 if(WIN32)
   if($<CONFIG:Debug>)
     get_target_property(WIDGETDLL Qt5::Widgets IMPORTED_LOCATION_DEBUG)
