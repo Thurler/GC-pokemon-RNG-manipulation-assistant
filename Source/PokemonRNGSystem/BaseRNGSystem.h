@@ -48,11 +48,12 @@ public:
   size_t getPracalcFileSize(const bool useWii, const int rtcErrorMarginSeconds);
   virtual int getNbrStartersPrediction() = 0;
   virtual std::vector<std::string> getStartersName() = 0;
-  virtual std::vector<int> obtainTeamGenerationCritera(u32 seed) = 0;
+  virtual std::vector<int> obtainTeamGenerationCritera(u32 &seed) = 0;
   // Does the precalculation which consist of outputing to a file the number of RNG calls done
   // before getting to the battle menu, this improves performance significantly thanks to the LCGn
   // function and this file can be reused in subsequent seed finding
   void precalculateNbrRollsBeforeTeamGeneration(const bool useWii, const int rtcErrorMarginSeconds,
+                                                const u32 numSeeds,
                                                 std::function<void(long)> progressUpdate,
                                                 std::function<bool()> shouldCancelNow);
   // Seed finding algorithm, this does only one pass with parellelism

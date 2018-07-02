@@ -195,7 +195,7 @@ void SeedFinderWizard::pageChanged()
                 [=]() { m_cancelPrecalc = true; });
         QtConcurrent::run([=]() {
           SPokemonRNG::getCurrentSystem()->precalculateNbrRollsBeforeTeamGeneration(
-              m_useWii, m_rtcErrorMarginSeconds,
+              m_useWii, m_rtcErrorMarginSeconds, (range.max - range.min),
               [=](long int value) { emit onUpdatePrecalcProgress(value); },
               [=]() { return m_cancelPrecalc; });
           emit onPrecalcDone();

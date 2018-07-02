@@ -272,7 +272,7 @@ bool GaleDarknessRNGSystem::generateBattleTeam(u32& seed, const std::vector<int>
   return true;
 }
 
-std::vector<int> GaleDarknessRNGSystem::obtainTeamGenerationCritera(u32 seed)
+std::vector<int> GaleDarknessRNGSystem::obtainTeamGenerationCritera(u32 &seed)
 {
   std::vector<int> criteria;
   // Player trainer name generation
